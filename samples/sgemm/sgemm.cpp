@@ -161,7 +161,7 @@ int main(void)
     setKernelArgumentsSuccess &= checkSuccess(clSetKernelArg(kernel, 3, sizeof(cl_uint), &matrixOrder));
     setKernelArgumentsSuccess &= checkSuccess(clSetKernelArg(kernel, 4, sizeof(cl_float), &alpha));
     setKernelArgumentsSuccess &= checkSuccess(clSetKernelArg(kernel, 5, sizeof(cl_float), &beta));
-    if (!createMemoryObjectsSuccess)
+    if (!setKernelArgumentsSuccess)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed setting OpenCL kernel arguments. " << __FILE__ << ":"<< __LINE__ << endl;
